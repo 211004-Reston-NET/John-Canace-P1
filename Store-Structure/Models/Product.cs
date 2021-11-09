@@ -34,6 +34,9 @@ namespace SFModels
 
         public int ProductQuantity {get; set; }
 
+        public virtual StoreFront StoreStore { get; set; }
+        public virtual Line_Item LineItem { get; set; }
+
         public override string ToString()
         {
             return $"Name: {ProductName}\nPrice: {ProductPrice}\nDescription: {ProductDescription}\nCategory: {ProductCategory}\nQuantity: {ProductQuantity}";

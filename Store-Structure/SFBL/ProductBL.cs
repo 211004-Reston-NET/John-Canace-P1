@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using SFDL;
 using System.Linq;
-using Entity = SFDL.Entities;
 using SFModels;
 
 namespace SFBL
@@ -11,8 +10,8 @@ namespace SFBL
 
     public class ProductBL :IProductBL
     {
-        private Entity._211004restonnetdemoContext _context;
-        public ProductBL(Entity._211004restonnetdemoContext p_context) 
+        private _211004restonnetdemoContext _context;
+        public ProductBL(_211004restonnetdemoContext p_context) 
         {
             _context = p_context;
         }

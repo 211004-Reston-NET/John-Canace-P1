@@ -6,6 +6,8 @@ namespace SFModels
 {
     public class Order
     {
+        
+        
         private List<Line_Item> _lineItems = new List<Line_Item>();
         public int OrderList {get; set; }
         public decimal TotalPrice {get; set; }
@@ -16,6 +18,11 @@ namespace SFModels
         public int CustomerID {get; set; }
 
         public int StoreID {get; set; }
+
+        public virtual Customer OrderCustomer { get; set; }
+        public virtual StoreFront OrderStore { get; set; }
+
+        public virtual ICollection<Line_Item> LineItems { get; set; }
 
          public override string ToString()
         {

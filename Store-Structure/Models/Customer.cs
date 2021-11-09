@@ -12,18 +12,10 @@ namespace SFModels
             
         }
         
-        
-        
-        //This is a field
         private string _customerName;
         private string _customerphone;
         private List<Order> _orders = new List<Order>();
-        //private string _address;
-        //private string _email;
-        //private int _phoneNumber;
-        //private string _orderList;
 
-        //This is a property that uses the field called _customer
         public string CustomerName
         {
             get { return _customerName; }
@@ -39,7 +31,6 @@ namespace SFModels
             }
         }
 
-        //public string Customer { get; set; }
         public string CustomerAddress { get; set; }
         public string CustomerEmail {get; set; }
         public string CustomerPhoneNumber {get {return _customerphone;} set {if (!Regex.IsMatch(value, @"^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$"))
@@ -57,7 +48,7 @@ namespace SFModels
         public override string ToString()
         {
             return $"Name: {CustomerName}\n Address: {CustomerAddress}\nEmail: {CustomerEmail}\nPhoneNumber: {CustomerPhoneNumber}\nCustomerID: {CustomerID}";
-            //return $"PhoneNumber: {CustomerPhoneNumber}";
+            
         }
 
     }

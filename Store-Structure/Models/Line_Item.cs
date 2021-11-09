@@ -5,23 +5,26 @@ namespace SFModels
 {
     public class Line_Item
     {
-        //This is a field
         
         private Product _prods;
         private int _quant;
-        public string lineItemList;
+        public string lineItemName;
 
-        //private string _lineItemProductName;
+        public string lineItemList {get; set; }
         
         public int LineStoreID {get; set;}
         
         public int LineOrderListID {get; set;} 
 
-        public int lineItemProductNameID;
+        public int lineItemProductNameID {get; set;}
 
         public Product Product {get{return _prods;}set{_prods = value;}}
 
         public int Quantity { get{return _quant;} set{_quant = value;} }
+
+        //public virtual Product LineItemname { get; set; }
+        public virtual Order LineOrderList { get; set; }
+        public virtual StoreFront LineStore { get; set; }
 
         public override string ToString()
         {

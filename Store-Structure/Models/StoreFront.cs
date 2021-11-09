@@ -6,10 +6,7 @@ namespace SFModels
 {
     public class StoreFront
     {
-        //This is a field
         private string _storeFrontName;
-
-        //This is a property that uses the field called _storeFront
         public string StoreFrontName
         {
             get { return _storeFrontName; }
@@ -42,6 +39,8 @@ namespace SFModels
         public List<Line_Item> Line_Items {get{return lineItems;}set{lineItems = value;}}
 
         public List<Order> Orders {get{return _orders;}set{_orders = value;}}
+
+        public virtual ICollection<Product> Products { get; set; }
 
         public override string ToString()
         {
