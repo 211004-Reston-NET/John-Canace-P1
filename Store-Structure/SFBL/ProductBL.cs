@@ -10,8 +10,8 @@ namespace SFBL
 
     public class ProductBL :IProductBL
     {
-        private _211004restonnetdemoContext _context;
-        public ProductBL(_211004restonnetdemoContext p_context) 
+        private IPRepository _context;
+        public ProductBL(IPRepository p_context) 
         {
             _context = p_context;
         }
@@ -23,10 +23,10 @@ namespace SFBL
         /// have the implementation
         /// </summary>
         /// <param name="p_repo">It will pass in a Respository object</param>
-        public ProductBL(IPRepository p_repo)
-        {
-            _repo = p_repo;
-        }
+        //public ProductBL(IPRepository p_repo)
+        //{
+        //    _repo = p_repo;
+        //}
 
         public Product AddProduct(Product p_duct)
         {

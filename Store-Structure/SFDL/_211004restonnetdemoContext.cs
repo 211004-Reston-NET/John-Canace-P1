@@ -107,7 +107,7 @@ namespace SFDL
 
                 entity.Property(e => e.OrderList).HasColumnName("order_orderListID");
 
-                entity.Property(e => e.OrderCustomer).HasColumnName("order_customerID");
+                //entity.Property(e => e.OrderCus).HasColumnName("order_customerID");
 
                 entity.Property(e => e.StoreID).HasColumnName("order_storeID");
 
@@ -116,7 +116,7 @@ namespace SFDL
                     .HasColumnName("order_totalprice")
                     .HasDefaultValueSql("((0))");
 
-                entity.HasOne(d => d.OrderCustomer)
+                entity.HasOne(d => d.OrderCus)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.CustomerID)
                     .OnDelete(DeleteBehavior.ClientSetNull)

@@ -19,7 +19,7 @@ namespace SFModels
 
         public int StoreID {get; set; }
 
-        public virtual Customer OrderCustomer { get; set; }
+        public virtual Customer OrderCus { get; set; }
         public virtual StoreFront OrderStore { get; set; }
 
         public virtual ICollection<Line_Item> LineItems { get; set; }
