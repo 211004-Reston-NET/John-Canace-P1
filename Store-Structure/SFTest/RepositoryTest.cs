@@ -29,7 +29,7 @@ namespace SFTest
 
                  //Assert
                  Assert.Equal(2, test.Count);
-                 Assert.Equal("Stephen Restaurant", test[0].Name);
+                 Assert.Equal("Mick Rough", test[0].CustomerName);
             }
         }
 
