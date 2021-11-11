@@ -34,11 +34,11 @@ namespace SFWebUI
             services.AddScoped<ILine_ItemBL, Line_ItemBL>();
             services.AddScoped<IOrderBL, OrderBL>();
             services.AddScoped<IProductBL, ProductBL>();
-            services.AddScoped<IRepository, Repository>();
-            services.AddScoped<ICRepository, CRepository>();
-            services.AddScoped<ILRepository, LRepository>();
-            services.AddScoped<IPRepository, PRepository>();
-            services.AddScoped<IORepository, ORepository>();
+            //services.AddScoped<IRepository, Repository>();
+            //services.AddScoped<ICRepository, CRepository>();
+            //services.AddScoped<ILRepository, LRepository>();
+            //services.AddScoped<IPRepository, CloudRespository>();
+            //services.AddScoped<IORepository, ORepository>();
             services.AddScoped<IRepository, CloudRespository>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();

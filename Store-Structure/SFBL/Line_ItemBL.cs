@@ -9,7 +9,7 @@ namespace SFBL
 
     public class Line_ItemBL :ILine_ItemBL
     {
-        private ILRepository _repo;
+        private IRepository _repo;
         /// <summary>
         /// We are defining the dependencies this class needs to operate
         /// We do it this way because we can easily switch out which implementation details we will be using
@@ -17,7 +17,7 @@ namespace SFBL
         /// have the implementation
         /// </summary>
         /// <param name="p_repo">It will pass in a Respository object</param>
-        public Line_ItemBL(ILRepository p_repo)
+        public Line_ItemBL(IRepository p_repo)
         {
             _repo = p_repo;
         }

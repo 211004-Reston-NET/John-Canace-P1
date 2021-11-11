@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SFDL{
 
-     public class CloudRespository : IRepository, ICRepository, ILRepository, IORepository, IPRepository
+     public class CloudRespository : IRepository
     {
         private _211004restonnetdemoContext _context;
         //private string _jsonString;
@@ -28,9 +28,9 @@ namespace SFDL{
                       return _context.StoreFronts.Find(s_id);            
         }
 
-        public List<Model.Product> GetStoreFrontInventory(int s_id)
+        public Model.Product GetStoreFrontInventory(int s_id)
         {
-            return _context.Products.Where(pro => pro.StoreStoreID == s_id).ToList();
+            return _context.Products.Find(s_id);
         }    
 
        public Model.Customer AddCustomer(Model.Customer c_omer)

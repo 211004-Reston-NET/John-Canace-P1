@@ -1,27 +1,42 @@
 [
-    {
-        "CustomerName": "Carl Wheezer",
-        "CustomerAddress": "0821 Line Drive",
-        "CustomerEmail": "wheezer21@gmail.com",
-        "CustomerPhoneNumber": "244-472-2812"
-
-    },
-    {
-        "CustomerName": "Timmy Hoggie",
-        "CustomerAddress": "5213 Hog Blvd",
-        "CustomerEmail": "hoggie21@gmail.com",
-        "CustomerPhoneNumber": "381-537-4591"
-    },
-    {
-        "CustomerName": "Gabriel Bitman",
-        "CustomerAddress": "4370 Superior Road",
-        "CustomerEmail": "bitman12@gmail.com",
-        "CustomerPhoneNumber": "583-543-0312"
-    },
-    {
-        "CustomerName": "Jimbo Randy",
-        "CustomerAddress": "5555 Something Lane",
-        "CustomerEmail": "randy67@gmail.com",
-        "CustomerPhoneNumber": "123-982-4091"
-    }
-  ]
+  {
+    "CustomerName": "Carl Wheezer",
+    "CustomerAddress": "0821 Line Drive",
+    "CustomerEmail": "wheezer21@gmail.com",
+    "CustomerPhoneNumber": "244-472-2812",
+    "CustomerID": 0,
+    "Orders": []
+  },
+  {
+    "CustomerName": "Timmy Hoggie",
+    "CustomerAddress": "5213 Hog Blvd",
+    "CustomerEmail": "hoggie21@gmail.com",
+    "CustomerPhoneNumber": "381-537-4591",
+    "CustomerID": 0,
+    "Orders": []
+  },
+  {
+    "CustomerName": "Gabriel Bitman",
+    "CustomerAddress": "4370 Superior Road",
+    "CustomerEmail": "bitman12@gmail.com",
+    "CustomerPhoneNumber": "583-543-0312",
+    "CustomerID": 0,
+    "Orders": []
+  },
+  {
+    "CustomerName": "Jimbo Randy",
+    "CustomerAddress": "5555 Something Lane",
+    "CustomerEmail": "randy67@gmail.com",
+    "CustomerPhoneNumber": "123-982-4091",
+    "CustomerID": 0,
+    "Orders": []
+  },
+  {
+    "CustomerName": "Timothy Carl",
+    "CustomerAddress": "352 Randy lane",
+    "CustomerEmail": "sdfr@gmail.com",
+    "CustomerPhoneNumber": "135-092-1911",
+    "CustomerID": 7,
+    "Orders": []
+  }
+]

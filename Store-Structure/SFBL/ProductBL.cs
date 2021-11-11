@@ -10,12 +10,12 @@ namespace SFBL
 
     public class ProductBL :IProductBL
     {
-        private IPRepository _context;
-        public ProductBL(IPRepository p_context) 
+        private IRepository _context;
+        public ProductBL(IRepository p_context) 
         {
             _context = p_context;
         }
-        private IPRepository _repo;
+        //private IPRepository _repo;
         /// <summary>
         /// We are defining the dependencies this class needs to operate
         /// We do it this way because we can easily switch out which implementation details we will be using
@@ -30,13 +30,13 @@ namespace SFBL
 
         public Product AddProduct(Product p_duct)
         {
-            return _repo.AddProduct(p_duct);
+            return _context.AddProduct(p_duct);
         }
 
         public List<Product> GetAllProducts()
         {
             //Maybe my business operation needs to capitalize every name of a storefront
-            List<Product> listOfProduct = _repo.GetAllProducts();
+            List<Product> listOfProduct = _context.GetAllProducts();
             for (int i = 0; i < listOfProduct.Count; i++)
             {
                 listOfProduct[i].ProductName = listOfProduct[i].ProductName.ToLower(); 
@@ -50,9 +50,9 @@ namespace SFBL
         //    prodID = Entity.StoreFront.StoreProdListId;
         //}
 
-        public List<Product> GetStoreFrontInventory(int s_id)
+        public Product GetStoreFrontInventory(int s_id)
         {
-            return _repo.GetStoreFrontInventory(s_id);
+            return _context.GetStoreFrontInventory(s_id);
         }
 
          public Product UpdateQuantity(Product p_qua, int p_howMuchAdded)
@@ -60,12 +60,12 @@ namespace SFBL
             
             p_qua.ProductQuantity += p_howMuchAdded; 
 
-            return _repo.UpdateQuantity(p_qua);
+            return _context.UpdateQuantity(p_qua);
         }
 
         public Product GetProductByID(int p_prodID)
         {
-           return _repo.GetProductByID(p_prodID);
+           return _context.GetProductByID(p_prodID);
         }
     }
 }

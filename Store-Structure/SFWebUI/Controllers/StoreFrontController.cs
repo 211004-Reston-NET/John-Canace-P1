@@ -13,9 +13,11 @@ namespace RRWebUI.Controllers
     public class StoreFrontController : Controller
     {
         private IStoreFrontBL _rontBL;
-        public StoreFrontController(IStoreFrontBL s_rontBL)
+        private IProductBL _ductBL;
+        public StoreFrontController(IStoreFrontBL s_rontBL, IProductBL p_ductBL)
         {
             _rontBL = s_rontBL;
+            _ductBL = p_ductBL;
         }
 
         // GET: RestaurantController
@@ -45,7 +47,6 @@ namespace RRWebUI.Controllers
             if (ModelState.IsValid)
             {
                 _rontBL.GetStoreFrontByID(rontVM.StoreFrontId);
-                
 
                 return RedirectToAction(nameof(Index));
             }
@@ -55,13 +56,21 @@ namespace RRWebUI.Controllers
         }
 
         // GET: RestaurantController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int p_id)
         {
-            return View();
+            //return View();
+            return View(_ductBL.GetStoreFrontInventory(p_id));
+                //.Select(prod => new ProductVM(prod)).ToList());
         }
 
         // GET: RestaurantController/Edit/5
         public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(StoreFront s_id)
         {
             return View();
         }
