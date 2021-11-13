@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
+using SFModels;
 
 namespace SFDL{
 
@@ -42,32 +43,32 @@ namespace SFDL{
            return c_omer;
        }
 
-       public List<Model.Customer> GetAllCustomers()
+       public List<Customer> GetAllCustomers()
        {
            return _context.Customers.ToList();
        }
 
-       public Model.Customer GetCustomerByID(int c_id)
+       public Customer GetCustomerByID(int c_id)
         {
                 return _context.Customers.Find(c_id);            
         }
        
-       public List<Model.Line_Item> GetAllLine_Items(int l_storeID)
+       public List<Line_Item> GetAllLine_Items(int l_storeID)
        {
            return _context.LineItems.ToList();
        }
 
-       public Model.Line_Item GetLine_ItemByID(int l_item)
+       public Line_Item GetLine_ItemByID(int l_item)
         {
             return _context.LineItems.Find(l_item); 
         }
 
-       public List<Model.Order> GetAllOrders(int o_id)
+       public List<Order> GetAllOrders(int o_id)
        {
            return _context.OrderLists.ToList();
         }
 
-       public Model.Product AddProduct(Model.Product p_duct)
+       public Product AddProduct(Model.Product p_duct)
        {
            _context.Products.Add(p_duct);
         
@@ -76,7 +77,7 @@ namespace SFDL{
            return p_duct;
        }
 
-       public List<Model.Product> GetAllProducts()
+       public List<Product> GetAllProducts()
        {
            return _context.Products.ToList();
        }

@@ -46,8 +46,7 @@ namespace RRWebUI.Controllers
                     CustomerName = omerVM.CustomerName,
                     CustomerAddress = omerVM.CustomerAddress,
                     CustomerEmail = omerVM.CustomerEmail,
-                    CustomerPhoneNumber = omerVM.CustomerPhoneNumber,
-                    CustomerID = omerVM.CustomerID
+                    CustomerPhoneNumber = omerVM.CustomerPhoneNumber
                 });
 
                 return RedirectToAction(nameof(Index));
@@ -59,23 +58,28 @@ namespace RRWebUI.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult Select(CustomerVM omerVM)
         {
-            //This if statement will check if the current model that is being passed through is valid
-            //If not, the asp-validation-for attribute elements will appear and autofill in the proper feedback for the user 
-            //to correct themselves
-            if (ModelState.IsValid)
-            {
-                _omerBL.GetCustomerByID(omerVM.CustomerID);
-
-
-                return RedirectToAction(nameof(Index));
-            }
-
-            //Will return back to the create view if the user didn't specify the right input
-            return View();
+            return View(_omerBL.GetCustomerByID(omerVM.CustomerID));
         }
+
+        //[HttpPost]
+        //public IActionResult Select(CustomerVM omerVM)
+        //{
+        //    //This if statement will check if the current model that is being passed through is valid
+        //    //If not, the asp-validation-for attribute elements will appear and autofill in the proper feedback for the user 
+        //    //to correct themselves
+        //    if (ModelState.IsValid)
+        //    {
+        //        _omerBL.GetCustomerByID(omerVM.CustomerID);
+
+        //        return RedirectToAction(nameof(Index));
+        //    }
+
+        //    //Will return back to the create view if the user didn't specify the right input
+        //    return View();
+        //}
 
         // GET: RestaurantController/Details/5
         public ActionResult Details(int id)

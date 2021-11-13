@@ -102,17 +102,23 @@ namespace RRWebUI.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            return View();
+        }
 
         // GET: RestaurantController/Edit/5
+        [HttpPost]
         public ActionResult Edit(Product l_qua, int p_howMuchAdded)
         {
             if (ModelState.IsValid)
             {
                 l_qua.ProductQuantity += p_howMuchAdded;
 
-                return View(l_qua.ProductQuantity);
+                //return View(l_qua.ProductQuantity);
 
-                //return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));
             }
 
             //Will return back to the create view if the user didn't specify the right input

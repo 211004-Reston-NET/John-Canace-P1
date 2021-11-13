@@ -3,3 +3,19 @@
 *@
 @{
 }
+
+@model SFWebUI.Models.ProductVM
+
+<h1 class="display-4">Update Product Inventory</h1>
+<h3>Edit store's product inventory here.</h3>
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="mb-3">
+        <label asp-for="Quantity" class="form-label">New Product Quantity</label>
+        <input asp-for="Quantity" type="text" class="form-control">
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" value="Edit">Submit</button>
+</form>

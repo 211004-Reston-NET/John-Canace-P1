@@ -46,10 +46,10 @@ namespace SFBL
 
             //return custFound.Where(custFound => custFound.CustomerName.Contains(c_name)).ToList();
 
-            if(custFound == null)
-            {
-                throw new Exception("Customer was not found!");
-            }
+            //if(custFound == null)
+            //{
+            //    throw new Exception("Customer was not found!");
+            //}
             return custFound;
         }
 
