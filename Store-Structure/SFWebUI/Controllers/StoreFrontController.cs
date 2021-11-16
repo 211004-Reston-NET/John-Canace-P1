@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RRWebUI.Controllers
+namespace SFWebUI.Controllers
 {
     public class StoreFrontController : Controller
     {
@@ -56,11 +56,31 @@ namespace RRWebUI.Controllers
         }
 
         // GET: RestaurantController/Details/5
-        public ActionResult Details(int p_id)
+        [HttpGet]
+        public ActionResult Details(int s_id)
         {
+            List<Product> prodList = _ductBL.GetStoreFrontInventory(s_id);
             //return View();
-            return View(_ductBL.GetStoreFrontInventory(p_id));
-                //.Select(prod => new ProductVM(prod)).ToList());
+            return View(prodList
+                .Select(prod => new ProductVM(prod)).ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Details(ProductVM product)
+        {
+            if (ModelState.IsValid)
+            {
+                //l_qua.ProductQuantity += p_howMuchAdded;
+
+                List<Product> prodInInv = _ductBL.GetStoreFrontInventory(product.ProductID);
+
+                //return View(l_qua.ProductQuantity);
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            //Will return back to the create view if the user didn't specify the right input
+            return View();
         }
 
         // GET: RestaurantController/Edit/5

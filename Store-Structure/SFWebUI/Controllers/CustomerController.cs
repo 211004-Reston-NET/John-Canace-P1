@@ -59,27 +59,29 @@ namespace RRWebUI.Controllers
         }
 
         [HttpGet]
-        public IActionResult Select(CustomerVM omerVM)
+        public IActionResult Select(int c_id)
         {
-            return View(_omerBL.GetCustomerByID(omerVM.CustomerID));
+            Customer specificCust = _omerBL.GetCustomerByID(c_id);
+            
+            return View(new CustomerVM(specificCust));
         }
 
-        //[HttpPost]
-        //public IActionResult Select(CustomerVM omerVM)
-        //{
-        //    //This if statement will check if the current model that is being passed through is valid
-        //    //If not, the asp-validation-for attribute elements will appear and autofill in the proper feedback for the user 
-        //    //to correct themselves
-        //    if (ModelState.IsValid)
-        //    {
-        //        _omerBL.GetCustomerByID(omerVM.CustomerID);
+        [HttpPost]
+        public IActionResult Select(CustomerVM omerVM)
+        {
+            //This if statement will check if the current model that is being passed through is valid
+            //If not, the asp-validation-for attribute elements will appear and autofill in the proper feedback for the user 
+            //to correct themselves
+            if (ModelState.IsValid)
+            {
+                Customer custToShow =_omerBL.GetCustomerByID(omerVM.CustomerID);
 
-        //        return RedirectToAction(nameof(Index));
-        //    }
+                return RedirectToAction(nameof(Index));
+            }
 
-        //    //Will return back to the create view if the user didn't specify the right input
-        //    return View();
-        //}
+            //Will return back to the create view if the user didn't specify the right input
+            return View();
+        }
 
         // GET: RestaurantController/Details/5
         public ActionResult Details(int id)

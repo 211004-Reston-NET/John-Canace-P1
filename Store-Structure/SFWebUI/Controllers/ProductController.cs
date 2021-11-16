@@ -78,7 +78,13 @@ namespace RRWebUI.Controllers
             //Will return back to the create view if the user didn't specify the right input
             return View();
         }
-
+        [HttpGet]
+        public IActionResult Select()
+        {
+            return View();
+        }
+        
+        
         [HttpPost]
         public IActionResult Select(int s_id)
         {
@@ -103,18 +109,26 @@ namespace RRWebUI.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult Edit()
+        public ActionResult Edit(int p_id)
         {
-            return View();
+            Product prodFound = _ductBL.GetProductByID(p_id);
+            return View(new ProductVM(prodFound));
         }
 
         // GET: RestaurantController/Edit/5
         [HttpPost]
-        public ActionResult Edit(Product l_qua, int p_howMuchAdded)
+        public ActionResult Edit(ProductVM product)
         {
             if (ModelState.IsValid)
             {
-                l_qua.ProductQuantity += p_howMuchAdded;
+                //l_qua.ProductQuantity += p_howMuchAdded;
+
+                Product prodToAdd = _ductBL.GetProductByID(product.ProductID);
+
+
+                prodToAdd.ProductQuantity = product.Quantity;
+
+                _ductBL.UpdateQuantity(prodToAdd);
 
                 //return View(l_qua.ProductQuantity);
 
@@ -123,21 +137,6 @@ namespace RRWebUI.Controllers
 
             //Will return back to the create view if the user didn't specify the right input
             return View();
-        }
-
-        // POST: RestaurantController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         // GET: RestaurantController/Delete/5

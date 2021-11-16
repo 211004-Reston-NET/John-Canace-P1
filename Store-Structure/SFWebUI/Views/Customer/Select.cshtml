@@ -1,41 +1,25 @@
-﻿@model SFWebUI.Models.CustomerVM
-
-@{
-    ViewData["Title"] = "Select";
+﻿@{
 }
+@model SFWebUI.Models.CustomerVM
 
-<h1>Customer Inforamtion</h1>
 
-<div>
-    <h4>Customer</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerAddress)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerAddress)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerEmail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerEmail)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerPhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustomerPhoneNumber)
-        </dd>
-    </dl>
-</div>
-<div>
-    
-</div>
+<h1>Customer Information</h1>
+
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Customer Name</th>
+        <th>Customer Address</th>
+        <th>Customer Email</th>
+        <th>Customer PhoneNumber</th>
+        <th>CustomerID</th>
+    </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => model.CustomerName)</td>
+            <td>@Html.DisplayFor(model => model.CustomerAddress)</td>
+            <td>@Html.DisplayFor(model => model.CustomerEmail)</td>
+            <td>@Html.DisplayFor(model => model.CustomerPhoneNumber)</td>
+            <td>@Html.DisplayFor(model => model.CustomerID)</td>
+
+        </tr>
+</table>

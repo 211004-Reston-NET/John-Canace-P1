@@ -24,14 +24,14 @@ namespace SFDL{
             return _context.StoreFronts.ToList();
         }
 
-        public Model.StoreFront GetStoreFrontByID(int s_id)
+        public StoreFront GetStoreFrontByID(int s_id)
         {
                       return _context.StoreFronts.Find(s_id);            
         }
 
-        public Model.Product GetStoreFrontInventory(int s_id)
+        public List<Product> GetStoreFrontInventory(int s_id)
         {
-            return _context.Products.Find(s_id);
+            return _context.Products.Where(prod => prod.StoreStoreID == s_id).ToList();
         }    
 
        public Model.Customer AddCustomer(Model.Customer c_omer)
@@ -87,7 +87,7 @@ namespace SFDL{
            return _context.Products.Find(p_prodID);
        }
 
-       public Model.Product UpdateQuantity(Model.Product p_qua)
+       public Model.Product UpdateQuantity(Product p_qua)
         {
             _context.Products.Update(p_qua);
 

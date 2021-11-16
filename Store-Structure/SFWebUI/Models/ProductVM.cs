@@ -28,13 +28,13 @@ namespace SFWebUI.Models
 
         public string ProductName { get; set; }
 
-        [Required]
+        //[Required]
         public int ProductID { get; set; }
 
-        [Required]
+        //[Required]
         public decimal ProductPrice { get; set; }
 
-        [Required]
+        
         public string ProductCategory { get; set; }
 
         public string ProductDescription { get; set; }

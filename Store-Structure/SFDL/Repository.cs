@@ -48,7 +48,7 @@ namespace SFDL
             throw new NotImplementedException();
         }
 
-        public Product GetStoreFrontInventory(int s_id)
+        public List<Product> GetStoreFrontInventory(int s_id)
         {
             throw new NotImplementedException();
         }

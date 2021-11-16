@@ -50,21 +50,22 @@ namespace SFBL
         //    prodID = Entity.StoreFront.StoreProdListId;
         //}
 
-        public Product GetStoreFrontInventory(int s_id)
+        public List<Product> GetStoreFrontInventory(int s_id)
         {
             return _context.GetStoreFrontInventory(s_id);
         }
 
-         public Product UpdateQuantity(Product p_qua, int p_howMuchAdded)
+         public Product UpdateQuantity(Product p_qua)
         {
             
-            p_qua.ProductQuantity += p_howMuchAdded; 
-
+            //p_qua.ProductQuantity += p_howMuchAdded; 
+            
             return _context.UpdateQuantity(p_qua);
         }
 
         public Product GetProductByID(int p_prodID)
         {
+            
            return _context.GetProductByID(p_prodID);
         }
     }

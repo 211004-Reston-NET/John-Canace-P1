@@ -28,7 +28,7 @@ namespace SFDL
 
         List<Product> GetAllProducts();
 
-        Product GetStoreFrontInventory(int s_id);
+        List<Product> GetStoreFrontInventory(int s_id);
 
         Product GetProductByID(int p_prodID);
 

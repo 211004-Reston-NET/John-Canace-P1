@@ -63,8 +63,8 @@ namespace SFBL
 
         Product GetProductByID(int p_prodID);
 
-        Product GetStoreFrontInventory(int s_id);
+        List<Product> GetStoreFrontInventory(int s_id);
 
-        Product UpdateQuantity(Product l_qua, int p_howMuchAdded);
+        Product UpdateQuantity(Product l_qua);
     }
 }
