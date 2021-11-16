@@ -26,5 +26,10 @@ namespace SFBL
         {
             return _repo.GetAllOrders(o_id);
         }
+
+        public Order AddOrder(Order o_order)
+        {
+            return _repo.AddOrder(o_order);
+        }
     }
 }

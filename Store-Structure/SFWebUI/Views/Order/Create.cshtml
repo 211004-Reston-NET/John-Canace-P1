@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model SFWebUI.Models.OrderVM
+
+<h1 class="display-4">Place Order</h1>
+<h3>Create a new order here.</h3>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="mb-3">
+        <label asp-for="CustomerID" class="form-label">CustomerID</label>
+        <input asp-for="CustomerID" type="text" class="form-control">
+        <span asp-validation-for="CustomerID" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="StoreID" class="form-label">StoreID</label>
+        <input asp-for="StoreID" type="text" class="form-control">
+        <span asp-validation-for="StoreID" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TotalPrice" class="form-label">Total Price</label>
+        <input asp-for="TotalPrice" type="text" class="form-control">
+        <span asp-validation-for="TotalPrice" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" value="Create">Submit</button>
+</form>

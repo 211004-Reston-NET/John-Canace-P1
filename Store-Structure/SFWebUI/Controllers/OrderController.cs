@@ -36,11 +36,26 @@ namespace RRWebUI.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult Create(OrderVM orderVM)
+        {
+            if (ModelState.IsValid)
+            {
+                _rderBL.AddOrder(new Order()
+                {
+                    CustomerID = orderVM.CustomerID,
+                    StoreID = orderVM.StoreID,
+                    TotalPrice = orderVM.TotalPrice
+                });
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            else
+            {
+                return NotFound();
+            }
+        }
 
         //[HttpPost]
         //public IActionResult Select(CustomerVM omerVM)

@@ -48,7 +48,7 @@ namespace SFUI
                         Console.WriteLine("How much you want to add?");
                         int addedRating = Int32.Parse(Console.ReadLine());
 
-                        _ductBL.UpdateQuantity(proFound, addedRating);
+                        //_ductBL.UpdateQuantity(proFound, addedRating);
                     }
                     catch (System.FormatException)
                     {

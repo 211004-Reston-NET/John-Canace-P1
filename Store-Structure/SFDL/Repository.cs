@@ -97,6 +97,11 @@ namespace SFDL
             throw new NotImplementedException();
         }
 
+        public Order AddOrder(Order o_order)
+        {
+            throw new NotImplementedException();
+        }
+
         public Line_Item GetLine_ItemByID(int l_item)
         {
             throw new NotImplementedException();

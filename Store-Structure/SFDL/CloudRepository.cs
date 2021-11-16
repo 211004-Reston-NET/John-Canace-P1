@@ -19,7 +19,7 @@ namespace SFDL{
             _context = p_context;
         }
 
-        public List<Model.StoreFront> GetAllStoreFronts()
+        public List<StoreFront> GetAllStoreFronts()
         {
             return _context.StoreFronts.ToList();
         }
@@ -34,7 +34,7 @@ namespace SFDL{
             return _context.Products.Where(prod => prod.StoreStoreID == s_id).ToList();
         }    
 
-       public Model.Customer AddCustomer(Model.Customer c_omer)
+       public Customer AddCustomer(Customer c_omer)
        {
            _context.Customers.Add(c_omer);
 
@@ -63,12 +63,33 @@ namespace SFDL{
             return _context.LineItems.Find(l_item); 
         }
 
+       //public Line_Item AssignProductToLineItem(Product p_duct)
+        //{
+         //   return _context.LineItems.Add(p_duct);
+        //}
+
        public List<Order> GetAllOrders(int o_id)
        {
            return _context.OrderLists.ToList();
-        }
+       }
 
-       public Product AddProduct(Model.Product p_duct)
+       public Order AddOrder(Order o_order)
+       {
+
+            _context.OrderLists.Add(o_order);
+
+            var customer = _context.Customers.Find(o_order.CustomerID);
+            customer.Orders.Add(o_order);
+
+            var storefront = _context.StoreFronts.Find(o_order.StoreID);
+            storefront.Orders.Add(o_order);
+
+            _context.SaveChanges();
+
+            return o_order;
+       }
+
+       public Product AddProduct(Product p_duct)
        {
            _context.Products.Add(p_duct);
         
@@ -82,12 +103,12 @@ namespace SFDL{
            return _context.Products.ToList();
        }
 
-       public Model.Product GetProductByID(int p_prodID)
+       public Product GetProductByID(int p_prodID)
        {
            return _context.Products.Find(p_prodID);
        }
 
-       public Model.Product UpdateQuantity(Product p_qua)
+       public Product UpdateQuantity(Product p_qua)
         {
             _context.Products.Update(p_qua);
 

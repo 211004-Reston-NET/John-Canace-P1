@@ -24,6 +24,8 @@ namespace SFDL
 
         List<Order> GetAllOrders(int o_id);
 
+        public Order AddOrder(Order o_order);
+
         Product AddProduct(Product P_duct);
 
         List<Product> GetAllProducts();

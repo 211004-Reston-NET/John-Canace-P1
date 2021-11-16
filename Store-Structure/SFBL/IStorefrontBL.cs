@@ -49,6 +49,8 @@ namespace SFBL
         
         //Return list of customers stored in Database
         List<Order> GetAllOrders(int o_id);
+
+        public Order AddOrder(Order o_order);
     }
 
     public interface IProductBL
