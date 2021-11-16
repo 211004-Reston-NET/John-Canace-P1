@@ -13,6 +13,17 @@
 <br /> <!-- This br tag will space between elements -->
 <br />
 
+<form asp-action="Index">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="mb-3">
+        <label id ="customer" name="customer"class="form-label">CustomerID</label>
+        <input id ="customer" name="customer"type="text" class="form-control">
+        <span  class="text-danger"></span>
+
+    </div>
+    <button type="submit" class="btn btn-primary" value="Select">Select</button>
+</form>
+
 <table class="table table-striped table-hover">
     <tr>
         <th>Name</th>
@@ -31,11 +42,8 @@
             <td>@Html.DisplayFor(modelItem => item.CustomerPhoneNumber)</td>
             <td>@Html.DisplayFor(modelItem => item.CustomerID)</td>
             <td>
-                <!--First parameter of ActionLink is the name it will give for this element -->
-                <!--Second parameter will point to the action of the customer controller-->
-                <!--Third parameter will give the information from the view to the controller-->
 
-            <button class="btn btn-primary">@Html.ActionLink("More Info", "Select", "Customer", new { c_id = item.CustomerID }, new { @style = "color: white" })</button>
+                
             </td>
         </tr>
     }

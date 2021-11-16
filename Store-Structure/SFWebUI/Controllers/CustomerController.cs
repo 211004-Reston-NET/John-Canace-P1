@@ -19,15 +19,23 @@ namespace RRWebUI.Controllers
         }
 
         // GET: RestaurantController
-        public ActionResult Index()
+        public ActionResult Index(string customer = null)
         {
+
+            var custFound = _omerBL.GetAllCustomers();
             //We got our list of restaurant from our business layer
             //We converted that Model restaurant into RestaurantVM using Select method
             //Finally we changed it to a List with ToList()
+            if (customer != null)
+            {
+                return View(custFound.Where(cust => cust.CustomerName.Contains(customer)).Select(omer => new CustomerVM(omer))
+                            .ToList());
+
+            }
+
             return View(_omerBL.GetAllCustomers()
-                        .Select(omer => new CustomerVM(omer))
-                        .ToList()
-            );
+                            .Select(omer => new CustomerVM(omer))
+                            .ToList());
         }
 
         [HttpGet]
